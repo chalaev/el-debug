@@ -1,0 +1,25 @@
+* Description
+Simplifies elisp debugging and testing.
+
+Usage example: take a look on how it is used in [[https://github.com/chalaev/cloud/blob/master/testing.org][testing cloud project]]:
+=(require 'el-debug)= rewrites =defun= so that we get a log message every time we enter or leave a function,
+see [[https://github.com/chalaev/cloud/blob/master/tests/meso.log][meso.log]] as an example.
+
+Other macros used for debugging in [[https://github.com/chalaev/cloud][cloud project]]: [[https://github.com/chalaev/cloud/blob/master/cloud.org][cloud.org]] and [[https://github.com/chalaev/cloud/blob/master/testing.org][testing.org]]:
+=debug-set=, =set-list=, and =debug-log-var=.
+
+* Prerequisites
+We need [[https://github.com/chalaev/lisp-goodies][lisp-goodies]]: [[https://github.com/chalaev/lisp-goodies/blob/master/packaged/start.el][start.el]] (used by [[file:Makefile][Makefile]]), and [[https://github.com/chalaev/lisp-goodies/blob/master/packaged/shalaev.el][shalaev.el]] for logging.
+
+* Quick start
+1. =mkdir ~/.emacs.d/local-packages/=.
+2. Place [[https://github.com/chalaev/lisp-goodies/blob/master/packaged/shalaev.el][shalaev.el]] and [[file:packaged/el-debug.el][el-debug.el]] to =~/.emacs.d/local-packages/=
+3. Load [[https://github.com/chalaev/lisp-goodies/blob/master/packaged/start.el][start.el]] in your [[https://github.com/chalaev/lisp-goodies/blob/master/generated/dot.emacs][~/.emacs]]
+4. Insert in your text code:
+   #+BEGIN_SRC emacs-lisp
+   (require 'el-debug)
+   #+END_SRC
+   similarly to [[https://github.com/chalaev/cloud/blob/master/testing.org][this example]].
+
+* License
+This code is released under [[https://mit-license.org/][MIT license]].
